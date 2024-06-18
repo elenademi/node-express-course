@@ -1,0 +1,7 @@
+const names = require("./04-names")
+const dogsList = require('./05-utils')
+const fosters = require('./06-alternative-flavor')
+dogsList(names.dogOne)
+dogsList(names.dogTwo)
+console.log(fosters)
+require('./07-mind-grenade')
