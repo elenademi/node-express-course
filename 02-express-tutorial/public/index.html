@@ -1,0 +1,38 @@
+<html>
+  
+  <head></head>
+  <body>
+    <h3>Furniture.</h3>
+    <button id="products">Find Products</button>
+  <div id="productsList"></div>
+<script>
+    document.getElementById('products').addEventListener('click', function() {
+        console.log('Button clicked, fetching products...');
+        let products = [];
+      fetch('http://localhost:3000/api/v1/products')
+      
+        .then(function(response) {
+           
+          return response.json();
+        })
+        .then(function(products) {
+            console.log('Products received:', products)
+  let productList = document.getElementById('productsList');
+  let productsHTML = products.products.map(product => `
+  <div class="product">
+    <p>${product.name}</p>
+    <p>Price: $${product.price}</p>
+    <p><img src="${product.image}" alt="${product.name}"></p>
+    <p>${product.desc}</p>
+  </div>
+`).join('');
+  
+  productList.innerHTML = productsHTML;
+})
+        .catch(function(error) {
+          console.error('Products did not fetch correctly:', error);
+        });
+    });
+</script>   
+  </body>
+</html>
