@@ -1,0 +1,14 @@
+"Quickly explain how middleware is used in an Express application."
+We used it in this assignment to parse JSON. It can also be used for authentication, logging, 
+reading the request and response objects, handling errors. It is like a layer in between other layers in an application.
+
+"What does CRUD stand for?"
+Create, read, update, delete - to do operations with a database.
+
+"You are careful to store your sensitive information in a .env file.
+How do you get your app to access the information in the .env file?"
+You have to use "require("dotenv") to use the installed package. You have to use an asynchronous function in app.js
+ that will use try/catch statements like this: "await connectDB(process.env.MONGO_URI)"
+
+"How do you protect the contents of the .env file so that it is not stored in your Github repository?"
+You add them to the .gitignore file.
